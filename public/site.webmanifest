@@ -1,0 +1,21 @@
+{
+  "name": "StyleConnect Studio",
+  "short_name": "StyleConnect",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48 32x32 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "theme_color": "#14110F",
+  "background_color": "#FAF8F5",
+  "display": "standalone",
+  "start_url": "/"
+}
