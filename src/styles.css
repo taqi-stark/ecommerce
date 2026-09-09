@@ -1,0 +1,139 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Maison Véra design system — warm boutique neutrals.
+ * All colors are oklch semantic tokens. Never hardcode colors in components.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-display: var(--font-display-family);
+  --font-body: var(--font-body-family);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sand: var(--sand);
+  --color-taupe: var(--taupe);
+  --color-clay: var(--clay);
+  --color-whatsapp: var(--whatsapp);
+  --color-whatsapp-foreground: var(--whatsapp-foreground);
+}
+
+:root {
+  --radius: 0.75rem;
+  --font-display-family: "Cormorant Garamond", serif;
+  --font-body-family: "Jost", ui-sans-serif, system-ui, sans-serif;
+
+  --background: oklch(0.943 0.017 84);
+  --foreground: oklch(0.26 0.017 62);
+  --card: oklch(0.943 0.017 84);
+  --card-foreground: oklch(0.26 0.017 62);
+  --popover: oklch(0.943 0.017 84);
+  --popover-foreground: oklch(0.26 0.017 62);
+  --primary: oklch(0.26 0.017 62);
+  --primary-foreground: oklch(0.943 0.017 84);
+  --secondary: oklch(0.892 0.028 84);
+  --secondary-foreground: oklch(0.26 0.017 62);
+  --muted: oklch(0.892 0.028 84);
+  --muted-foreground: oklch(0.665 0.028 73);
+  --accent: oklch(0.626 0.072 55);
+  --accent-foreground: oklch(0.973 0.012 84);
+  --destructive: oklch(0.52 0.16 27);
+  --destructive-foreground: oklch(0.973 0.012 84);
+  --border: oklch(0.26 0.017 62 / 12%);
+  --input: oklch(0.26 0.017 62 / 18%);
+  --ring: oklch(0.626 0.072 55);
+  --sand: oklch(0.892 0.028 84);
+  --taupe: oklch(0.665 0.028 73);
+  --clay: oklch(0.626 0.072 55);
+  --whatsapp: oklch(0.537 0.111 160);
+  --whatsapp-foreground: oklch(0.973 0.012 84);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body-family);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@keyframes unfold {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drawer-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes veil-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@utility unfold {
+  animation: unfold 0.7s ease-out both;
+}
+
+@utility drawer-open {
+  animation: drawer-in 0.4s ease-out both;
+}
+
+@utility veil-open {
+  animation: veil-in 0.4s ease-out both;
+}
+
+@utility plain-link {
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: color-mix(in oklab, var(--foreground) 30%, transparent);
+  transition: text-decoration-color 0.2s ease;
+
+  &:hover {
+    text-decoration-color: var(--foreground);
+  }
+}
